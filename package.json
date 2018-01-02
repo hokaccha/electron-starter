@@ -1,0 +1,20 @@
+{
+  "name": "electron-starter",
+  "private": true,
+  "scripts": {
+    "start": "webpack --watch"
+  },
+  "dependencies": {
+    "electron": "^1.7.10",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
