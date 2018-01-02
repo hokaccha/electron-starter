@@ -1,4 +1,7 @@
 .App {
   font-family: sans-serif;
+}
+
+.App h1 {
   font-size: 24px;
 }
