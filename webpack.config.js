@@ -2,6 +2,7 @@ const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const commonConfig = {
+  resolve: { extensions: ['.ts', '.tsx'] },
   node: {
     __dirname: false,
     __filename: false,
@@ -13,7 +14,6 @@ const mainConfig = Object.assign({
   target: 'electron-main',
   entry: './src/main/index.ts',
   output: { filename: './dist/main.js' },
-  resolve: { extensions: ['.ts', '.tsx'] },
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
@@ -25,7 +25,6 @@ const rendererConfig = Object.assign({
   target: 'electron-renderer',
   entry: './src/renderer/app.tsx',
   output: { filename: './dist/app.js' },
-  resolve: { extensions: ['.ts', '.tsx'] },
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
