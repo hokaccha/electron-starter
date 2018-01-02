@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const commonConfig = {
   resolve: { extensions: ['.ts', '.tsx'] },
+  devtool: 'source-map',
   node: {
     __dirname: false,
     __filename: false,
@@ -28,7 +29,13 @@ const rendererConfig = Object.assign({
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
-      { test: /\.css$/, use: ExtractTextPlugin.extract({ use: 'css-loader' }) },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          loader: 'css-loader',
+          options: { sourceMap: true },
+        }),
+      },
     ],
   },
   plugins: [
