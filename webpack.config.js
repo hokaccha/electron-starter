@@ -33,7 +33,7 @@ const rendererConfig = Object.assign({
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           loader: 'css-loader',
-          options: { sourceMap: true },
+          options: { sourceMap: true, import: false },
         }),
       },
     ],
