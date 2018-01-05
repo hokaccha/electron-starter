@@ -2,7 +2,8 @@
   "name": "electron-starter",
   "private": true,
   "scripts": {
-    "start": "webpack --watch",
+    "start": "electron .",
+    "watch": "webpack --watch",
     "test": "mocha ./{src,test}/**/*.test.{ts,tsx}"
   },
   "dependencies": {
