@@ -1,5 +1,12 @@
 # My electron starter kit
 
+- React
+- TypeScript
+- webpack
+- Font Awesome
+- mocha
+- enzyme
+
 ## Development
 
 ```
