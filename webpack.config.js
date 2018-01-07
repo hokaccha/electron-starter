@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const distDir = process.env.NODE_ENV === 'production' ? './tmp/build/dist' : './dist';
 
 const commonConfig = {
   resolve: { extensions: ['.ts', '.tsx'] },
@@ -14,7 +15,7 @@ const commonConfig = {
 const mainConfig = Object.assign({
   target: 'electron-main',
   entry: './src/main/index.ts',
-  output: { filename: './dist/main.js' },
+  output: { filename: `${distDir}/main.js` },
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
@@ -25,7 +26,7 @@ const mainConfig = Object.assign({
 const rendererConfig = Object.assign({
   target: 'electron-renderer',
   entry: './src/renderer/app.tsx',
-  output: { filename: './dist/app.js' },
+  output: { filename: `${distDir}/app.js` },
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
@@ -39,7 +40,7 @@ const rendererConfig = Object.assign({
     ],
   },
   plugins: [
-    new ExtractTextPlugin({ filename: './dist/app.css' }),
+    new ExtractTextPlugin({ filename: `${distDir}/app.css` }),
   ],
 }, commonConfig);
 
