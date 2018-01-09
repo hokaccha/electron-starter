@@ -4,13 +4,13 @@ set -ex
 export NODE_ENV=production
 BUILD_DIR=tmp/build
 
-#rm -rf $BUILD_DIR out
-#mkdir -p $BUILD_DIR
-#./node_modules/.bin/webpack
-#cp -a html package.json yarn.lock index.js $BUILD_DIR
-#cd $BUILD_DIR
-#yarn install
-#cd -
+rm -rf $BUILD_DIR out
+mkdir -p $BUILD_DIR
+./node_modules/.bin/webpack
+cp -a html package.json yarn.lock index.js $BUILD_DIR
+cd $BUILD_DIR
+yarn install
+cd -
 
 VERSION=$(node -e "process.stdout.write(require('./package.json').version)")
 APP_NAME=$(node -e "process.stdout.write(require('./package.json').name)")
@@ -20,6 +20,7 @@ APP_NAME=$(node -e "process.stdout.write(require('./package.json').name)")
   --platform=darwin \
   --arch=x64 \
   --out=./out \
+  --package-manager=yarn \
   --app-version=$VERSION \
   --build-version=$VERSION \
   --app-copyright=hokaccha
