@@ -12,7 +12,6 @@ cd $BUILD_DIR
 yarn install
 cd -
 
-VERSION=$(node -e "process.stdout.write(require('./package.json').version)")
 APP_NAME=$(node -e "process.stdout.write(require('./package.json').name)")
 ./node_modules/.bin/electron-packager $BUILD_DIR $APP_NAME \
   --asar \
@@ -20,7 +19,5 @@ APP_NAME=$(node -e "process.stdout.write(require('./package.json').name)")
   --platform=darwin \
   --arch=x64 \
   --out=./out \
-  --package-manager=yarn \
-  --app-version=$VERSION \
-  --build-version=$VERSION \
+  --no-prune \
   --app-copyright=hokaccha
