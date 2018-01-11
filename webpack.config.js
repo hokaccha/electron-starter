@@ -9,7 +9,7 @@ const commonConfig = {
     __dirname: false,
     __filename: false,
   },
-  externals: [nodeExternals()],
+  externals: [nodeExternals({ whitelist: [/\.css$/] })],
 };
 
 const mainConfig = Object.assign({
@@ -36,6 +36,10 @@ const rendererConfig = Object.assign({
           loader: 'css-loader',
           options: { sourceMap: true, import: false },
         }),
+      },
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
+        loader: 'url-loader',
       },
     ],
   },
