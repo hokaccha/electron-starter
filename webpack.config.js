@@ -1,6 +1,7 @@
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const distDir = process.env.NODE_ENV === 'production' ? './tmp/build/dist' : './dist';
+const isProduction = process.env.NODE_ENV === 'production';
+const distDir = isProduction ? './tmp/build/dist' : './dist';
 
 const commonConfig = {
   resolve: { extensions: ['.ts', '.tsx'] },
@@ -18,7 +19,11 @@ const mainConfig = Object.assign({
   output: { filename: `${distDir}/main.js` },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: { transpileOnly: !isProduction },
+      },
     ],
   },
 }, commonConfig);
@@ -29,7 +34,11 @@ const rendererConfig = Object.assign({
   output: { filename: `${distDir}/app.js` },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: { transpileOnly: !isProduction },
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
