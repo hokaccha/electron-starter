@@ -17,6 +17,10 @@ export default class Button extends React.Component<ButtonProps> {
   }
 
   render() {
-    return <span className="Button" onClick={this.handleClick}>{this.props.children}</span>;
+    return (
+      <span className="Button" onClick={this.handleClick}>
+        {this.props.children}
+      </span>
+    );
   }
 }

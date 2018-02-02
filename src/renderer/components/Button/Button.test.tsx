@@ -7,11 +7,11 @@ import Button from "./Button";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Button', () => {
-  it('handle click', () => {
+describe("Button", () => {
+  it("handle click", () => {
     const onClick = sinon.spy();
     const wrapper = Enzyme.shallow(<Button onClick={onClick} />);
-    wrapper.simulate('click');
+    wrapper.simulate("click");
     assert.equal(onClick.callCount, 1);
   });
 });

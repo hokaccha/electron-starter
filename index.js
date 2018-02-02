@@ -1,2 +1,2 @@
-require('./env.js');
-require('./dist/main.js');
+require("./env.js");
+require("./dist/main.js");
