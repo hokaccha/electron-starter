@@ -5,7 +5,12 @@
   "scripts": {
     "start": "electron .",
     "watch": "webpack --watch",
-    "test": "mocha ./{src,test}/**/*.test.{ts,tsx}"
+    "test": "mocha ./{src,test}/**/*.test.{ts,tsx}",
+    "lint": "npm run lint:eslint && npm run lint:tsc && npm run lint:prettier",
+    "lint:eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
+    "lint:tsc": "tsc --noEmit",
+    "lint:prettier": "prettier --list-different '**/*.{js,jsx,ts,tsx,css,json}'",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,css,json}'"
   },
   "dependencies": {
     "font-awesome": "4.7.0",
