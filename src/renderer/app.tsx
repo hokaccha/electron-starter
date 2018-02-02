@@ -1,8 +1,8 @@
-import 'font-awesome/css/font-awesome.css';
-import './app.css';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import Button from './components/Button';
+import "font-awesome/css/font-awesome.css";
+import "./app.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import Button from "./components/Button";
 
 class App extends React.Component<any, any> {
   render() {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from "react";
 
 interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLSpanElement>) => void;

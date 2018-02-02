@@ -1,9 +1,9 @@
-import * as React from 'react';
-import * as sinon from 'sinon';
-import * as Enzyme from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
-import * as assert from 'assert';
-import Button from './Button';
+import React from "react";
+import sinon from "sinon";
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import assert from "assert";
+import Button from "./Button";
 
 Enzyme.configure({ adapter: new Adapter() });
 
