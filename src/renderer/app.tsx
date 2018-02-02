@@ -11,13 +11,13 @@ class App extends React.Component<any, any> {
         <h1>
           Hello Electron <i className="fa fa-thumbs-o-up" />
         </h1>
-        <Button onClick={e => this.handleClickButton()}>Click me!</Button>
+        <Button onClick={() => this.handleClickButton()}>Click me!</Button>
       </div>
     );
   }
 
   handleClickButton() {
-    console.log("clicked!");
+    console.log("clicked!"); // eslint-disable-line no-console
   }
 }
 

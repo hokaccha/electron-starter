@@ -1,6 +1,6 @@
 import electron from "electron";
 
-let app = electron.app;
+const app = electron.app;
 let mainWindow;
 
 function createWindow() {
