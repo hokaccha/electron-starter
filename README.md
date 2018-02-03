@@ -11,11 +11,14 @@
 
 ```
 # start electron application
-$ npm start
+$ yarn start
 
 # run webpack process
-$ npm run watch
+$ yarn watch
+
+# run lint
+$ yarn lint
 
 # run test
-$ npm test
+$ yarn test
 ```
