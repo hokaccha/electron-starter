@@ -1,0 +1,15 @@
+build: off
+
+branches:
+  only:
+    - master
+
+install:
+  - ps: Install-Product node LTS
+  - node --version
+  - npm --version
+  - npm install
+
+test_script:
+  - npm lint
+  - npm test
