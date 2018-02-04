@@ -1,15 +1,23 @@
-build: off
+os: Visual Studio 2015
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%USERPROFILE%\.electron'
+  - '%LOCALAPPDATA%\Yarn'
 
 branches:
   only:
     - master
 
+skip_tags: true
+
 install:
   - ps: Install-Product node LTS
-  - node --version
-  - npm --version
-  - npm install
+  - yarn install --force
 
 test_script:
-  - npm lint
-  - npm test
+  - yarn lint
+  - yarn test
