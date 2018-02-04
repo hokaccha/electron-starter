@@ -3,3 +3,4 @@ out/
 dist/
 tmp/
 package-lock.json
+.vscode/
