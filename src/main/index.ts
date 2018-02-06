@@ -10,7 +10,7 @@ function createWindow() {
     title: "Electron Starter"
   });
 
-  mainWindow.loadURL(`file://${__dirname}/../html/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/../index.html`);
   mainWindow.once("closed", () => {
     mainWindow = null;
   });

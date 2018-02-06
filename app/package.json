@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "my-electron-starter",
+  "productName": "MyElectronStarter",
+  "version": "1.0.0",
+  "description": "My Electron starter kit",
+"license": "MIT",
+  "author": {
+    "name": "Kazuhito Hokamura",
+    "email": "k.hokamura@gmail.com"
+  },
+  "dependencies": {
+    "font-awesome": "4.7.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
+  }
+}
