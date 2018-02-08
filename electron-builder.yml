@@ -1,4 +1,4 @@
 appId: com.example.electron-starter
 directories:
   output: dist
-  app: app
+  app: dist/app

@@ -1,14 +1,24 @@
 {
   "private": true,
+  "name": "my-electron-starter",
+  "productName": "MyElectronStarter",
+  "version": "1.0.0",
+  "description": "My Electron starter kit",
+  "license": "MIT",
+  "author": {
+    "name": "Kazuhito Hokamura",
+    "email": "k.hokamura@gmail.com"
+  },
   "scripts": {
     "start": "electron .",
     "watch": "webpack --watch",
     "test": "electron-mocha \"./{src,test}/**/*.test.{ts,tsx}\"",
-    "lint": "npm run lint:eslint && npm run lint:tsc && npm run lint:prettier",
+    "lint": "yarn run lint:eslint && yarn run lint:tsc && yarn run lint:prettier",
     "lint:eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --list-different ./**/*.{js,jsx,ts,tsx,css,json}",
-    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}"
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}",
+    "pack": "ts-node scripts/prepack.ts && webpack --env.NODE_ENV=production && electron-builder build"
   },
   "dependencies": {
     "font-awesome": "4.7.0",
@@ -16,6 +26,7 @@
     "react-dom": "16.2.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "5.0.0",
     "@types/mocha": "2.2.48",
     "@types/node": "9.4.0",
     "@types/react": "16.0.36",
@@ -32,6 +43,7 @@
     "eslint-plugin-react": "7.6.1",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.6",
+    "fs-extra": "5.0.0",
     "prettier": "1.10.2",
     "sinon": "4.2.2",
     "ts-loader": "3.4.0",
