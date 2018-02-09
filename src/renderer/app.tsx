@@ -1,5 +1,6 @@
 import "font-awesome/css/font-awesome.css";
 import "./app.css";
+import sqlite3 from "sqlite3";
 import React from "react";
 import ReactDOM from "react-dom";
 import Button from "./components/Button";
@@ -12,6 +13,10 @@ class App extends React.Component<any, any> {
           Hello Electron <i className="fa fa-thumbs-o-up" />
         </h1>
         <Button onClick={() => this.handleClickButton()}>Click me!</Button>
+
+        <ul>
+          <li>sqlite3: {sqlite3.VERSION}</li>
+        </ul>
       </div>
     );
   }

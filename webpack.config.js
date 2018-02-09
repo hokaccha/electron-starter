@@ -12,6 +12,9 @@ module.exports = env => {
   const commonConfig = {
     resolve: { extensions: [".ts", ".tsx", ".js"] },
     devtool: "source-map",
+    externals: {
+      sqlite3: "commonjs sqlite3"
+    },
     node: {
       __dirname: false,
       __filename: false
