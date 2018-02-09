@@ -10,7 +10,7 @@
     "email": "k.hokamura@gmail.com"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "electron app",
     "watch": "webpack --watch",
     "test": "electron-mocha \"./{src,test}/**/*.test.{ts,tsx}\"",
     "lint": "yarn run lint:eslint && yarn run lint:tsc && yarn run lint:prettier",
@@ -18,12 +18,9 @@
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --list-different ./**/*.{js,jsx,ts,tsx,css,json}",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}",
-    "pack": "ts-node scripts/prepack.ts && webpack --env.NODE_ENV=production && electron-builder build"
-  },
-  "dependencies": {
-    "font-awesome": "4.7.0",
-    "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "pack:prepare": "ts-node scripts/prepack.ts && webpack --env.NODE_ENV=production",
+    "pack": "yarn run pack:prepare && electron-builder build --dir",
+    "dist": "yarn run pack:prepare && electron-builder build"
   },
   "devDependencies": {
     "@types/fs-extra": "5.0.0",
@@ -43,8 +40,11 @@
     "eslint-plugin-react": "7.6.1",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.6",
+    "font-awesome": "4.7.0",
     "fs-extra": "5.0.0",
     "prettier": "1.10.2",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
     "sinon": "4.2.2",
     "ts-loader": "3.4.0",
     "ts-node": "4.1.0",

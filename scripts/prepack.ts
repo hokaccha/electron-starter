@@ -23,7 +23,7 @@ function mkdir(path: string): void {
 }
 
 const distDir = "dist/app";
-const targetFiles = ["app/index.html", "app/index.js", "package.json", "yarn.lock"];
+const targetFiles = ["app/index.html", "app/index.js", "package.json"];
 
 console.log(`remove: ${distDir}`);
 rm(distDir);
