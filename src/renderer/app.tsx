@@ -15,6 +15,9 @@ class App extends React.Component<any, any> {
         <Button onClick={() => this.handleClickButton()}>Click me!</Button>
 
         <ul>
+          <li>
+            env: <span id="AppEnv">{process.env.APP_ENV || "development"}</span>
+          </li>
           <li>sqlite3: {sqlite3.VERSION}</li>
         </ul>
       </div>

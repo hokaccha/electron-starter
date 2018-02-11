@@ -13,6 +13,7 @@
     "start": "electron app",
     "watch": "webpack --watch",
     "test": "electron-mocha \"./{src,test}/**/*.test.{ts,tsx}\"",
+    "test:integration": "yarn run pack:prepare && mocha test/integration/test.ts",
     "lint": "yarn run lint:eslint && yarn run lint:tsc && yarn run lint:prettier",
     "lint:eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "lint:tsc": "tsc --noEmit",
