@@ -4,10 +4,10 @@ machine:
 
 dependencies:
   cache_directories:
-    - "node_modules"
-    - "~/.electron"
-    - "~/Library/Caches/Yarn/v1"
-    - "~/Library/Caches/electron-builder"
+    - node_modules
+    - ~/.electron
+    - ~/.cache/electron-builder
+    - ~/.cache/yarn
 
   pre:
     - npm install -g yarn
