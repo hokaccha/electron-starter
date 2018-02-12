@@ -6,7 +6,6 @@ dependencies:
   cache_directories:
     - node_modules
     - ~/.electron
-    - ~/.cache/electron-builder
     - ~/.cache/yarn
 
   pre:
@@ -16,5 +15,7 @@ dependencies:
     - yarn install --force
 
 test:
+  cache_directories:
+    - ~/.cache/electron-builder
   override:
     - yarn run ci
