@@ -15,7 +15,5 @@ dependencies:
     - yarn install --force
 
 test:
-  cache_directories:
-    - ~/.cache/electron-builder
   override:
     - yarn run ci
