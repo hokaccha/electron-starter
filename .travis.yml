@@ -1,0 +1,28 @@
+sudo: required
+dist: trusty
+
+language: node_js
+node_js:
+  - "8.9.0"
+
+cache:
+  yarn: true
+  timeout: 600
+  directories:
+    - node_modules
+    - $HOME/.electron
+    - $HOME/.cache/electron-builder
+
+install:
+  - yarn install --force
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
+
+script:
+  - yarn ci
