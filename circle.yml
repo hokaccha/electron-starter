@@ -9,12 +9,6 @@ dependencies:
     - "~/Library/Caches/Yarn/v1"
     - "~/Library/Caches/electron-builder"
 
-  pre:
-    - npm install -g yarn
-
-  override:
-    - yarn install --force
-
 test:
   override:
     - yarn run ci
