@@ -16,4 +16,4 @@ install:
 build: off
 
 test_script:
-  - yarn ci
+  - yarn run ci
