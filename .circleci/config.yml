@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build-and-test:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+      - run: yarn install --force
+      - run: yarn run ci
