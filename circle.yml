@@ -1,0 +1,24 @@
+machine:
+  xcode:
+    version: "9.2.0"
+
+dependencies:
+  cache_directories:
+    - "node_modules"
+    - "~/.electron"
+    - "~/Library/Caches/Yarn/v1"
+    - "~/Library/Caches/electron-builder"
+
+  pre:
+    - brew update
+    - brew uninstall node
+    - brew install node@8 --force
+    - brew link --overwrite node@8 --force
+    - npm install -g yarn
+
+  override:
+    - yarn install --force
+
+test:
+  override:
+    - yarn run ci
