@@ -6,19 +6,25 @@
 - Font Awesome
 - mocha
 - enzyme
+- electron-builder
+- sqlite3
+- CI
+  - AppVeyor (for windows)
+  - Travis CI (for macOS)
+  - CircleCI (for Linux)
 
 ## Development
 
 ```
 # start electron application
-$ yarn start
+$ yarn run start
 
 # run webpack process
-$ yarn watch
+$ yarn run watch
 
 # run lint
-$ yarn lint
+$ yarn run lint
 
 # run test
-$ yarn test
+$ yarn run test
 ```
