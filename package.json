@@ -22,7 +22,7 @@
     "lint:prettier": "prettier --list-different ./**/*.{js,jsx,ts,tsx,css,json}",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}",
     "pack": "yarn run compile && electron-builder build",
-    "ci": " yarn run lint && yarn run test && electron-builder build --dir"
+    "ci": " yarn run lint && yarn run test && yarn run pack"
   },
   "dependencies": {
     "sqlite3": "3.1.13"
