@@ -25,4 +25,4 @@ install:
 script:
   - yarn run lint
   - yarn run test
-  - if [ "$TRAVIS_BRANCH" = "master" ]; yarn run dist; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then yarn run dist; fi
