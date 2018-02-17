@@ -5,6 +5,10 @@ language: node_js
 node_js:
   - "8.9.0"
 
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
+
 cache:
   yarn: true
   timeout: 600
@@ -19,4 +23,6 @@ install:
   - yarn install --force
 
 script:
-  - yarn run ci
+  - yarn run lint
+  - yarn run test
+  - if [ "$TRAVIS_BRANCH" = "master" ]; yarn run dist; fi

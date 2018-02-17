@@ -16,4 +16,8 @@ install:
 build: off
 
 test_script:
-  - yarn run ci
+  - yarn run lint
+  - yarn run test
+
+on_success:
+  - IF %APPVEYOR_REPO_BRANCH%==master yarn run dist
