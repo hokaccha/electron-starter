@@ -2,7 +2,7 @@
   "private": true,
   "name": "my-electron-starter",
   "productName": "MyElectronStarter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My Electron starter kit",
   "license": "MIT",
   "author": {
