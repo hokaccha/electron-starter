@@ -2,3 +2,7 @@ appId: com.example.electron-starter
 directories:
   output: dist
   app: dist/app
+publish:
+  provider: github
+  owner: hokaccha
+  repo: electron-starter
