@@ -6,3 +6,8 @@ publish:
   provider: github
   owner: hokaccha
   repo: electron-starter
+linux:
+  target:
+    - AppImage
+    - deb
+    - rpm
