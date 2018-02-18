@@ -5,6 +5,7 @@
   "version": "1.0.4",
   "description": "My Electron starter kit",
   "license": "MIT",
+  "homepage": "https://github.com/hokaccha/electron-starter",
   "author": {
     "name": "Kazuhito Hokamura",
     "email": "k.hokamura@gmail.com"
