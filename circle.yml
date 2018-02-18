@@ -9,7 +9,6 @@ dependencies:
     - ~/.cache/yarn
 
   pre:
-    - sudo apt-get update; sudo apt-get install snapcraft
     - npm install -g yarn
 
   override:
