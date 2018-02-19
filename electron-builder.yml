@@ -6,7 +6,7 @@ publish:
   provider: github
   owner: hokaccha
   repo: electron-starter
-windows:
+win:
   target:
     - squirrel
 linux:
