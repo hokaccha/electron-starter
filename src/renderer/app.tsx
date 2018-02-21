@@ -15,6 +15,7 @@ class App extends React.Component<any, any> {
         <Button onClick={() => this.handleClickButton()}>Click me!</Button>
 
         <ul>
+          <li>version: {process.env.APP_VERSION}</li>
           <li>
             env: <span id="AppEnv">{process.env.APP_ENV || "development"}</span>
           </li>

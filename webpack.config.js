@@ -4,8 +4,10 @@ module.exports = env => {
   const nodeEnv = (env && env.NODE_ENV) || "development";
   const isProduction = nodeEnv === "production";
   const distDir = isProduction ? "./dist/app/out" : "./app/out";
+  const packageJson = require("./package.json");
 
   const definePlugin = new webpack.DefinePlugin({
+    "process.env.APP_VERSION": JSON.stringify(packageJson.version),
     "process.env.NODE_ENV": JSON.stringify(nodeEnv)
   });
 
