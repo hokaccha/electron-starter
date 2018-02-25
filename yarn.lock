@@ -57,6 +57,12 @@
   version "16.0.38"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.38.tgz#76617433ea10274505f60bb86eddfdd0476ffdc2"
 
+"@types/sqlite3@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@types/sqlite3/-/sqlite3-3.1.1.tgz#f9b707c574e8d2f73d6c41aaa86e28b6ef85a324"
+  dependencies:
+    "@types/node" "*"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
