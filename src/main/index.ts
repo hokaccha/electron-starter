@@ -3,7 +3,7 @@ import log from "electron-log";
 import { autoUpdater } from "electron-updater";
 
 const app = electron.app;
-let mainWindow: electron.BrowserWindow;
+let mainWindow: electron.BrowserWindow | null;
 
 log.transports.file.level = "debug";
 autoUpdater.logger = log;
