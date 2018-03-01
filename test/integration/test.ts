@@ -15,7 +15,7 @@ describe("Launch application", function() {
     }
     app = new Application({
       path: appPath,
-      args: [path.join(rootDir, "dist", "app")],
+      args: [path.join(rootDir, "tmp", "app")],
       env: { APP_ENV: "test" }
     });
     return app.start();
