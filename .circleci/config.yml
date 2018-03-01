@@ -25,7 +25,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run: apt-get update && apt-get install rpm
+      - run: sudo apt-get update && sudo apt-get install rpm
       - run: yarn run dist
       - store_artifacts:
           path: dist
