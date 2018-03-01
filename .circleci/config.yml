@@ -27,7 +27,7 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run: yarn run dist
       - store_artifacts:
-        path: dist
+          path: dist
 
 workflows:
   version: 2
