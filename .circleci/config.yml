@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: node:8.9.4
+    steps:
+      - checkout
+      - run: yarn install --force
+      - run: yarn run lint
+      - run: yarn run test
