@@ -3,7 +3,7 @@ module.exports = env => {
   const ExtractTextPlugin = require("extract-text-webpack-plugin");
   const nodeEnv = (env && env.NODE_ENV) || "development";
   const isProduction = nodeEnv === "production";
-  const distDir = isProduction ? "./dist/app/out" : "./app/out";
+  const distDir = isProduction ? "./tmp/app/out" : "./app/out";
   const packageJson = require("./package.json");
 
   const definePlugin = new webpack.DefinePlugin({

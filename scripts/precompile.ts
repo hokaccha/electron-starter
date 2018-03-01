@@ -22,7 +22,7 @@ function mkdir(path: string): void {
   fse.ensureDirSync(normalizePath(path));
 }
 
-const distDir = "dist/app";
+const distDir = "tmp/app";
 const targetFiles = ["app/index.html", "app/index.js", "package.json", "yarn.lock"];
 
 console.log(`remove: ${distDir}`);
