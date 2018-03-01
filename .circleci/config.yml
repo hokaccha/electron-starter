@@ -32,10 +32,11 @@ jobs:
 workflows:
   version: 2
   test_and_dist:
-    - test
-    - dist:
-        requires:
-          - test
-        filters:
-          branches:
-            only: master
+    jobs:
+      - test
+      - dist:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
