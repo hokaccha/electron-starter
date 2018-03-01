@@ -6,6 +6,14 @@ jobs:
       - image: circleci/node:8.9.4-browsers
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run: yarn install --force
       - run: yarn run lint
       - run: yarn run test
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - ~/.electron
+            - ~/.cache/yarn
