@@ -8,7 +8,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run: yarn install --force
+      - run: yarn install
       - run: yarn run lint
       - run: yarn run test
       - save_cache:
@@ -25,6 +25,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run: apt-get update && apt-get install rpm
       - run: yarn run dist
       - store_artifacts:
           path: dist
