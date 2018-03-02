@@ -30,5 +30,7 @@ for:
       only:
         - /^release\/v.*/
 
-    deploy_script:
+    test_script:
+      - yarn run lint
+      - yarn run test
       - yarn run publish
