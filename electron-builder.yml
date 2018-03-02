@@ -1,16 +1,27 @@
 appId: com.example.electron-starter
+
 directories:
   output: dist
   app: tmp/app
+
 publish:
   provider: github
   owner: hokaccha
   repo: electron-starter
+
 win:
   target:
     - squirrel
+
+mac:
+  target:
+    - zip
+    - dmg
+  category: public.app-category.developer-tools
+
 linux:
   target:
     - AppImage
     - deb
     - rpm
+  category: Utility
