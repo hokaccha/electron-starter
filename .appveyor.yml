@@ -3,8 +3,6 @@ os: Visual Studio 2015
 platform:
   - x64
 
-configuration: Test
-
 skip_tags: true
 
 build: off
@@ -13,25 +11,26 @@ environment:
   nodejs_version: "8.9.0"
 
 cache:
-  - node_modules
   - '%USERPROFILE%\.electron'
   - '%LOCALAPPDATA%\Yarn'
-  - '%LOCALAPPDATA%\electron-builder\cache'
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   - yarn install --force
 
-test_script:
-  - yarn run lint
-  - yarn run test
-
 for:
   - branches:
-      only:
+      except:
         - /^release\/v.*/
-    configuration: Release
     test_script:
       - yarn run lint
       - yarn run test
+
+  - branches:
+      only:
+        - /^release\/v.*/
+    test_script:
+      - yarn run lint
+      - yarn run test
+    deploy_script:
       - yarn run publish
