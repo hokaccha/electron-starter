@@ -19,6 +19,7 @@ install:
   - yarn install --force
 
 build: off
+deploy: off
 
 test_script:
   - yarn run lint
