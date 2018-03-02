@@ -11,13 +11,14 @@ jobs:
       - run: yarn install
       - run: yarn run lint
       - run: yarn run test
+      - run: yarn run pack
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - ~/.electron
             - ~/.cache/yarn
-  dist:
+  publish:
     working_directory: ~/workspace
     docker:
       - image: circleci/node:8.9.4-browsers
@@ -26,18 +27,16 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run: sudo apt-get update && sudo apt-get install rpm
-      - run: yarn run dist
-      - store_artifacts:
-          path: dist
+      - run: yarn run publish
 
 workflows:
   version: 2
-  test_and_dist:
+  workflow:
     jobs:
       - test
-      - dist:
+      - publish:
           requires:
             - test
           filters:
             branches:
-              only: master
+              only: /^release\/v.*/

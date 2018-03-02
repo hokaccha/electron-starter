@@ -22,7 +22,8 @@
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --list-different ./**/*.{js,jsx,ts,tsx,css,json}",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}",
-    "dist": "yarn run compile && electron-builder build"
+    "pack": "yarn run compile && electron-builder build --publish never",
+    "publish": "yarn run compile && electron-builder build --publish onTagOrDraft"
   },
   "dependencies": {
     "sqlite3": "3.1.13"

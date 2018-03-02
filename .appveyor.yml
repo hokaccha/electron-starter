@@ -6,6 +6,8 @@ platform:
 environment:
   nodejs_version: "8.9.0"
 
+skip_tags: true
+
 cache:
   - node_modules
   - '%USERPROFILE%\.electron'
@@ -21,6 +23,12 @@ build: off
 test_script:
   - yarn run lint
   - yarn run test
+  - yarn run pack
 
-on_success:
-  - IF %APPVEYOR_REPO_BRANCH%==master yarn run dist
+for:
+  branches:
+    only:
+      - /^release\/v.*/
+
+  deploy_script:
+    - yarn run publish
