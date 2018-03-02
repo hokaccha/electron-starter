@@ -26,9 +26,9 @@ test_script:
   - yarn run pack
 
 for:
-  branches:
-    only:
-      - /^release\/v.*/
+  - branches:
+      only:
+        - /^release\/v.*/
 
-  deploy_script:
-    - yarn run publish
+    deploy_script:
+      - yarn run publish
