@@ -23,7 +23,6 @@ build: off
 test_script:
   - yarn run lint
   - yarn run test
-  - yarn run pack
 
 for:
   - branches:
