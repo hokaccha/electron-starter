@@ -3,10 +3,14 @@ os: Visual Studio 2015
 platform:
   - x64
 
-environment:
-  nodejs_version: "8.9.0"
+configuration: Test
 
 skip_tags: true
+
+build: off
+
+environment:
+  nodejs_version: "8.9.0"
 
 cache:
   - node_modules
@@ -18,9 +22,6 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   - yarn install --force
 
-build: off
-deploy: off
-
 test_script:
   - yarn run lint
   - yarn run test
@@ -29,7 +30,7 @@ for:
   - branches:
       only:
         - /^release\/v.*/
-
+    configuration: Release
     test_script:
       - yarn run lint
       - yarn run test
