@@ -18,19 +18,15 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   - yarn install --force
 
-for:
-  - branches:
-      except:
-        - /^release\/v.*/
-    test_script:
-      - yarn run lint
-      - yarn run test
+test_script:
+  - yarn run lint
+  - yarn run test
 
-  - branches:
+for:
+  - configuration: Test
+  - configuration: Release
+    branches:
       only:
         - /^release\/v.*/
-    test_script:
-      - yarn run lint
-      - yarn run test
     deploy_script:
       - yarn run publish
