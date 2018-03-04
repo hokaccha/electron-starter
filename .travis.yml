@@ -28,4 +28,4 @@ deploy:
   provider: script
   script: yarn run publish
   on:
-    branch: /^release\/v.*/
+    branch: "/^release\/.*/"
