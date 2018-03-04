@@ -5,8 +5,7 @@
     "jsx": "react",
     "sourceMap": true,
     "esModuleInterop": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "strict": true
   },
   "include": ["src/**/*"]
 }
