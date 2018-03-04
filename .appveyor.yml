@@ -27,6 +27,6 @@ for:
   - configuration: Release
     branches:
       only:
-        - /^release\/.*/
+        - /^release\/.+/
     deploy_script:
       - yarn run publish
