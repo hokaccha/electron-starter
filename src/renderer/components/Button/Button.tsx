@@ -1,10 +1,8 @@
 import React from "react";
 
-/* eslint-disable no-undef */
 interface ButtonProps {
   readonly onClick: (event: React.MouseEvent<HTMLSpanElement>) => void;
 }
-/* eslint-enable no-undef */
 
 export default class Button extends React.Component<ButtonProps> {
   constructor(props: ButtonProps) {
