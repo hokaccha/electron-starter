@@ -23,4 +23,4 @@ install:
 script:
   - yarn run lint
   - yarn run test
-  - [[ $TRAVIS_BRANCH =~ release/.+ ]] && yarn run publish
+  - if [[ $TRAVIS_BRANCH =~ release/.+ ]]; then yarn run publish; fi
