@@ -1,12 +1,8 @@
 import electron from "electron";
-import log from "electron-log";
-import { autoUpdater } from "electron-updater";
+import { watchUpdate } from "./autoUpdater";
 
 const app = electron.app;
 let mainWindow: electron.BrowserWindow | null;
-
-log.transports.file.level = "debug";
-autoUpdater.logger = log;
 
 function createWindow() {
   mainWindow = new electron.BrowserWindow({
@@ -29,7 +25,7 @@ app.on("window-all-closed", () => {
 
 app.on("ready", () => {
   createWindow();
-  autoUpdater.checkForUpdatesAndNotify();
+  watchUpdate();
 });
 
 app.on("activate", () => {
