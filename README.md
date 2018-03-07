@@ -1,3 +1,7 @@
+[![Travis](https://img.shields.io/travis/hokaccha/electron-starter.svg?style=flat-square&label=Travis+CI)](https://travis-ci.org/hokaccha/electron-starter)
+[![CircleCI](https://img.shields.io/circleci/project/github/hokaccha/electron-starter.svg?style=flat-square&label=CircleCI)](https://circleci.com/gh/hokaccha/electron-starter)
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/hokaccha/electron-starter/master.svg?style=flat-square&label=AppVeyor&logo=appveyor)](https://ci.appveyor.com/project/hokaccha/electron-starter/branch/master)
+
 # My electron starter kit
 
 - React
