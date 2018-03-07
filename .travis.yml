@@ -23,9 +23,4 @@ install:
 script:
   - yarn run lint
   - yarn run test
-
-deploy:
-  provider: script
-  script: yarn run publish
-  on:
-    branch: /^release\/v.*/
+  - if [[ $TRAVIS_BRANCH =~ release/.+ ]]; then yarn run publish; fi
