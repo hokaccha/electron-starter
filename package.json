@@ -13,7 +13,7 @@
   "scripts": {
     "start": "electron app",
     "watch": "webpack --watch",
-    "compile": "ts-node scripts/precompile.ts && webpack --env.NODE_ENV=production",
+    "compile": "ts-node scripts/precompile.ts && webpack --mode production",
     "test": "yarn run test:unit && yarn run test:integration",
     "test:unit": "electron-mocha \"./test/unit/**/*.test.{ts,tsx}\"",
     "test:integration": "yarn run compile && mocha test/integration/test.ts",
