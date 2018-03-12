@@ -1,17 +1,19 @@
-module.exports = env => {
+module.exports = (env, argv) => {
   const webpack = require("webpack");
-  const ExtractTextPlugin = require("extract-text-webpack-plugin");
-  const nodeEnv = (env && env.NODE_ENV) || "development";
-  const isProduction = nodeEnv === "production";
-  const distDir = isProduction ? "./tmp/app/out" : "./app/out";
+  const path = require("path");
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+  const mode = argv.mode === "production" ? "production" : "development";
+  const isProduction = mode === "production";
+  const distDir = path.resolve(__dirname, isProduction ? "./tmp/app/out" : "./app/out");
   const packageJson = require("./package.json");
 
   const definePlugin = new webpack.DefinePlugin({
     "process.env.APP_VERSION": JSON.stringify(packageJson.version),
-    "process.env.NODE_ENV": JSON.stringify(nodeEnv)
+    "process.env.NODE_ENV": JSON.stringify(mode)
   });
 
   const commonConfig = {
+    mode: isProduction ? "production" : "development",
     resolve: { extensions: [".ts", ".tsx", ".js"] },
     devtool: "source-map",
     externals: {
@@ -27,7 +29,7 @@ module.exports = env => {
     {
       target: "electron-main",
       entry: "./src/main/index.ts",
-      output: { filename: `${distDir}/main.js` },
+      output: { filename: "main.js", path: distDir },
       module: {
         rules: [
           {
@@ -45,7 +47,7 @@ module.exports = env => {
     {
       target: "electron-renderer",
       entry: "./src/renderer/app.tsx",
-      output: { filename: `${distDir}/app.js` },
+      output: { filename: "app.js", path: distDir },
       module: {
         rules: [
           {
@@ -55,10 +57,7 @@ module.exports = env => {
           },
           {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-              loader: "css-loader",
-              options: { sourceMap: true, import: false }
-            })
+            use: [MiniCssExtractPlugin.loader, "css-loader"]
           },
           {
             test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
@@ -66,7 +65,7 @@ module.exports = env => {
           }
         ]
       },
-      plugins: [new ExtractTextPlugin({ filename: `${distDir}/app.css` }), definePlugin]
+      plugins: [new MiniCssExtractPlugin({ filename: "app.css" }), definePlugin]
     },
     commonConfig
   );

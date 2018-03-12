@@ -13,7 +13,7 @@
   "scripts": {
     "start": "electron app",
     "watch": "webpack --watch",
-    "compile": "ts-node scripts/precompile.ts && webpack --env.NODE_ENV=production",
+    "compile": "ts-node scripts/precompile.ts && webpack --mode production",
     "test": "yarn run test:unit && yarn run test:integration",
     "test:unit": "electron-mocha \"./test/unit/**/*.test.{ts,tsx}\"",
     "test:integration": "yarn run compile && mocha test/integration/test.ts",
@@ -50,17 +50,19 @@
     "file-loader": "1.1.9",
     "font-awesome": "4.7.0",
     "fs-extra": "5.0.0",
+    "mini-css-extract-plugin": "0.2.0",
     "prettier": "1.10.2",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "sinon": "4.4.0",
     "spectron": "3.8.0",
-    "ts-loader": "3.5.0",
+    "ts-loader": "4.0.1",
     "ts-node": "5.0.0",
     "typescript": "2.7.2",
     "typescript-eslint-parser": "14.0.0",
-    "url-loader": "0.6.2",
-    "webpack": "3.11.0",
+    "url-loader": "1.0.1",
+    "webpack": "4.1.1",
+    "webpack-cli": "2.0.11",
     "webpack-node-externals": "1.6.0"
   }
 }
