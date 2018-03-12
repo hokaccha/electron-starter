@@ -13,7 +13,9 @@ cache:
   yarn: true
   timeout: 600
   directories:
+    - node_modules
     - $HOME/.electron
+    - $HOME/Library/Caches/Yarn/v1
 
 script:
   - yarn run lint
