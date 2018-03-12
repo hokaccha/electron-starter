@@ -14,11 +14,6 @@ cache:
   timeout: 600
   directories:
     - $HOME/.electron
-    - $HOME/Library/Caches/Yarn/v1
-
-install:
-  - npm install -g yarn
-  - yarn install --force
 
 script:
   - yarn run lint

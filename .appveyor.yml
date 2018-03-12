@@ -11,12 +11,13 @@ environment:
   nodejs_version: "8.9.0"
 
 cache:
+  - node_modules
   - '%USERPROFILE%\.electron'
   - '%LOCALAPPDATA%\Yarn'
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - yarn install --force
+  - yarn install
 
 test_script:
   - yarn run lint
