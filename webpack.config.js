@@ -1,6 +1,6 @@
 module.exports = env => {
   const webpack = require("webpack");
-  const ExtractTextPlugin = require("extract-text-webpack-plugin");
+  // const ExtractTextPlugin = require("extract-text-webpack-plugin");
   const nodeEnv = (env && env.NODE_ENV) || "development";
   const isProduction = nodeEnv === "production";
   const distDir = isProduction ? "./tmp/app/out" : "./app/out";
@@ -12,10 +12,14 @@ module.exports = env => {
   });
 
   const commonConfig = {
+    mode: isProduction ? "production" : "development",
     resolve: { extensions: [".ts", ".tsx", ".js"] },
     devtool: "source-map",
     externals: {
       sqlite3: "commonjs sqlite3"
+    },
+    performance: {
+      hints: false
     },
     node: {
       __dirname: false,
@@ -55,10 +59,11 @@ module.exports = env => {
           },
           {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-              loader: "css-loader",
-              options: { sourceMap: true, import: false }
-            })
+            loader: "css-loader"
+            // use: ExtractTextPlugin.extract({
+            //   loader: "css-loader",
+            //   options: { sourceMap: true, import: false }
+            // })
           },
           {
             test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
@@ -66,7 +71,8 @@ module.exports = env => {
           }
         ]
       },
-      plugins: [new ExtractTextPlugin({ filename: `${distDir}/app.css` }), definePlugin]
+      // plugins: [new ExtractTextPlugin({ filename: `${distDir}/app.css` }), definePlugin]
+      plugins: [definePlugin]
     },
     commonConfig
   );

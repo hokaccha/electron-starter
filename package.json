@@ -55,12 +55,13 @@
     "react-dom": "16.2.0",
     "sinon": "4.4.0",
     "spectron": "3.8.0",
-    "ts-loader": "3.5.0",
+    "ts-loader": "4.0.1",
     "ts-node": "5.0.0",
     "typescript": "2.7.2",
     "typescript-eslint-parser": "14.0.0",
-    "url-loader": "0.6.2",
-    "webpack": "3.11.0",
+    "url-loader": "1.0.1",
+    "webpack": "4.1.1",
+    "webpack-cli": "2.0.11",
     "webpack-node-externals": "1.6.0"
   }
 }
