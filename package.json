@@ -13,16 +13,16 @@
   "scripts": {
     "start": "electron app",
     "watch": "webpack --watch",
-    "compile": "ts-node scripts/precompile.ts && webpack --env.NODE_ENV=production",
     "test": "yarn run test:unit && yarn run test:integration",
     "test:unit": "electron-mocha \"./test/unit/**/*.test.{ts,tsx}\"",
-    "test:integration": "yarn run compile && mocha test/integration/test.ts",
+    "test:integration": "yarn run compile:prod && mocha --exit test/integration/test.ts",
     "lint": "yarn run lint:eslint && yarn run lint:tsc && yarn run lint:prettier",
     "lint:eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --list-different ./**/*.{js,jsx,ts,tsx,css,json}",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,json}",
-    "publish": "yarn run compile && electron-builder build --publish always"
+    "publish": "yarn run compile:prod && electron-builder build --publish always",
+    "compile:prod": "ts-node scripts/precompile.ts && webpack --env.NODE_ENV=production"
   },
   "dependencies": {
     "sqlite3": "3.1.13"
