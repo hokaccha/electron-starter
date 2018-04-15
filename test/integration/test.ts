@@ -7,17 +7,21 @@ let app;
 describe("Launch application", function() {
   this.timeout(10000);
 
-  before(() => {
-    const rootDir = path.join(__dirname, "..", "..");
-    let appPath = path.join(rootDir, "node_modules", ".bin", "electron");
-    if (process.platform === "win32") {
-      appPath += ".cmd";
+  function appPath() {
+    switch (process.platform) {
+      case "linux":
+        return path.join(__dirname, "../../tmp/test/dist/linux-unpacked/MyElectronStarter");
+      case "darwin":
+        return path.join(__dirname, "../../tmp/test/dist/mac/MyElectronStarter.app/Contents/MacOS/MyElectronStarter");
+      case "win32":
+        return path.join(__dirname, "../../tmp/test/dist/win-unpacked/MyElectronStarter.exe");
+      default:
+        throw new Error("Path to the built binary needs to be defined for this platform in test/index.js");
     }
-    app = new Application({
-      path: appPath,
-      args: [path.join(rootDir, "tmp", "app")],
-      env: { APP_ENV: "test" }
-    });
+  }
+
+  before(() => {
+    app = new Application({ path: appPath() });
     return app.start();
   });
 

@@ -1,14 +1,20 @@
 module.exports = env => {
   const webpack = require("webpack");
   const ExtractTextPlugin = require("extract-text-webpack-plugin");
-  const nodeEnv = (env && env.NODE_ENV) || "development";
-  const isProduction = nodeEnv === "production";
-  const distDir = isProduction ? "./tmp/app/out" : "./app/out";
-  const packageJson = require("./package.json");
+  const CleanWebpackPlugin = require("clean-webpack-plugin");
+  const CopyWebpackPlugin = require("copy-webpack-plugin");
+  const isDevelopment = env === "development";
+  const packageJson = require("../package.json");
+  const path = require("path");
+  const distDir = {
+    development: "./app/out",
+    production: "./tmp/prod/app/out",
+    test: "./tmp/test/app/out"
+  }[env];
 
   const definePlugin = new webpack.DefinePlugin({
     "process.env.APP_VERSION": JSON.stringify(packageJson.version),
-    "process.env.NODE_ENV": JSON.stringify(nodeEnv)
+    "process.env.NODE_ENV": JSON.stringify(env)
   });
 
   const commonConfig = {
@@ -33,7 +39,7 @@ module.exports = env => {
           {
             test: /\.tsx?$/,
             loader: "ts-loader",
-            options: { transpileOnly: !isProduction }
+            options: { transpileOnly: isDevelopment }
           }
         ]
       }
@@ -51,7 +57,7 @@ module.exports = env => {
           {
             test: /\.tsx?$/,
             loader: "ts-loader",
-            options: { transpileOnly: !isProduction }
+            options: { transpileOnly: isDevelopment }
           },
           {
             test: /\.css$/,
@@ -70,6 +76,19 @@ module.exports = env => {
     },
     commonConfig
   );
+
+  if (!isDevelopment) {
+    const appDir = distDir.replace("/out", "");
+    const root = path.resolve(__dirname, "..");
+    const cleanPlugin = new CleanWebpackPlugin(appDir, { root });
+    const copyPlugin = new CopyWebpackPlugin([
+      { from: path.resolve(root, "app/index.html"), to: appDir },
+      { from: path.resolve(root, "app/index.js"), to: appDir },
+      { from: path.resolve(root, "package.json"), to: appDir },
+      { from: path.resolve(root, "yarn.lock"), to: appDir }
+    ]);
+    rendererConfig.plugins.push(cleanPlugin, copyPlugin);
+  }
 
   return [mainConfig, rendererConfig];
 };

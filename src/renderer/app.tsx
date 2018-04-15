@@ -17,7 +17,7 @@ class App extends React.Component<any, any> {
         <ul>
           <li>version: {process.env.APP_VERSION}</li>
           <li>
-            env: <span id="AppEnv">{process.env.APP_ENV || "development"}</span>
+            env: <span id="AppEnv">{process.env.NODE_ENV}</span>
           </li>
           <li>sqlite3: {sqlite3.VERSION}</li>
         </ul>

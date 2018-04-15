@@ -1,0 +1,11 @@
+appId: com.example.electron-starter
+
+directories:
+  output: tmp/test/dist
+  app: tmp/test/app
+
+win:
+  sign: null
+
+mac:
+  identity: null

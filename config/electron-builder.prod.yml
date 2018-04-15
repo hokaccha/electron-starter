@@ -2,7 +2,7 @@ appId: com.example.electron-starter
 
 directories:
   output: dist
-  app: tmp/app
+  app: tmp/prod/app
 
 publish:
   provider: github
