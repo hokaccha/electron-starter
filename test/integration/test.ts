@@ -8,13 +8,14 @@ describe("Launch application", function() {
   this.timeout(10000);
 
   function appPath() {
+    const distDir = path.join(__dirname, "../../tmp/test/dist");
     switch (process.platform) {
       case "linux":
-        return path.join(__dirname, "../../tmp/test/dist/linux-unpacked/MyElectronStarter");
+        return `${distDir}/linux-unpacked/my-electron-starter`;
       case "darwin":
-        return path.join(__dirname, "../../tmp/test/dist/mac/MyElectronStarter.app/Contents/MacOS/MyElectronStarter");
+        return `${distDir}/mac/MyElectronStarter.app/Contents/MacOS/MyElectronStarter`;
       case "win32":
-        return path.join(__dirname, "../../tmp/test/dist/win-unpacked/MyElectronStarter.exe");
+        return `${distDir}/win-unpacked/MyElectronStarter.exe`;
       default:
         throw new Error("Path to the built binary needs to be defined for this platform in test/index.js");
     }

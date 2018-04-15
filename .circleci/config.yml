@@ -17,8 +17,6 @@ jobs:
             - node_modules
             - ~/.electron
             - ~/.cache/yarn
-      - store_artifacts:
-          path: tmp
   publish:
     working_directory: ~/workspace
     docker:
