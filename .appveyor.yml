@@ -15,6 +15,9 @@ cache:
   - '%USERPROFILE%\.electron'
   - '%LOCALAPPDATA%\Yarn'
 
+artifacts:
+  - path: tmp
+
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   - yarn install
