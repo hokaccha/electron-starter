@@ -12,6 +12,7 @@
 - enzyme
 - electron-builder
 - sqlite3
+- Auto Update
 - CI
   - AppVeyor (for windows)
   - Travis CI (for macOS)
