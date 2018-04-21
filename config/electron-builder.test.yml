@@ -4,8 +4,5 @@ directories:
   output: tmp/test/dist
   app: tmp/test/app
 
-win:
-  sign: null
-
 mac:
-  identity: null
+  identity: null # disable code signing
