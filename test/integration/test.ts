@@ -8,7 +8,7 @@ describe("Launch application", function() {
   this.timeout(10000);
 
   function appPath() {
-    const distDir = path.join(__dirname, "../../tmp/test/dist");
+    const distDir = path.join(__dirname, "../../dist/test");
     switch (process.platform) {
       case "linux":
         return `${distDir}/linux-unpacked/my-electron-starter`;
@@ -17,7 +17,7 @@ describe("Launch application", function() {
       case "win32":
         return `${distDir}/win-unpacked/MyElectronStarter.exe`;
       default:
-        throw new Error("Path to the built binary needs to be defined for this platform in test/index.js");
+        throw new Error(`Invalid platfrom: ${process.platform}`);
     }
   }
 

@@ -1,21 +1,23 @@
-module.exports = env => {
-  const webpack = require("webpack");
-  const ExtractTextPlugin = require("extract-text-webpack-plugin");
-  const CleanWebpackPlugin = require("clean-webpack-plugin");
-  const CopyWebpackPlugin = require("copy-webpack-plugin");
-  const isDevelopment = env === "development";
-  const packageJson = require("../package.json");
-  const path = require("path");
-  const distDir = {
-    development: "./app/out",
-    production: "./tmp/prod/app/out",
-    test: "./tmp/test/app/out"
-  }[env];
+const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const packageJson = require("./package.json");
 
+module.exports = env => {
+  const buildEnv = (env && env.BUILD_ENV) || "development";
+  const isDevelopment = buildEnv === "development";
+  const appDir = `./app/${buildEnv}`;
+  const distDir = `${appDir}/out`;
+  const copyTargetFiles = ["static/index.html", "static/index.js", "package.json", "yarn.lock"];
+
+  const cleanPlugin = new CleanWebpackPlugin(appDir);
+  const extractTextPlugin = new ExtractTextPlugin({ filename: `${distDir}/app.css` });
   const definePlugin = new webpack.DefinePlugin({
     "process.env.APP_VERSION": JSON.stringify(packageJson.version),
-    "process.env.NODE_ENV": JSON.stringify(env)
+    "process.env.NODE_ENV": JSON.stringify(buildEnv)
   });
+  const copyPlugin = new CopyWebpackPlugin(copyTargetFiles.map(filePath => ({ from: filePath, to: appDir })));
 
   const commonConfig = {
     resolve: { extensions: [".ts", ".tsx", ".js"] },
@@ -72,23 +74,10 @@ module.exports = env => {
           }
         ]
       },
-      plugins: [new ExtractTextPlugin({ filename: `${distDir}/app.css` }), definePlugin]
+      plugins: [extractTextPlugin, definePlugin, cleanPlugin, copyPlugin]
     },
     commonConfig
   );
-
-  if (!isDevelopment) {
-    const appDir = distDir.replace("/out", "");
-    const root = path.resolve(__dirname, "..");
-    const cleanPlugin = new CleanWebpackPlugin(appDir, { root });
-    const copyPlugin = new CopyWebpackPlugin([
-      { from: path.resolve(root, "app/index.html"), to: appDir },
-      { from: path.resolve(root, "app/index.js"), to: appDir },
-      { from: path.resolve(root, "package.json"), to: appDir },
-      { from: path.resolve(root, "yarn.lock"), to: appDir }
-    ]);
-    rendererConfig.plugins.push(cleanPlugin, copyPlugin);
-  }
 
   return [mainConfig, rendererConfig];
 };

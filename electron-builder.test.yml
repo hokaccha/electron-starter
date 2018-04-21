@@ -1,8 +1,8 @@
 appId: com.example.electron-starter
 
 directories:
-  output: tmp/test/dist
-  app: tmp/test/app
+  output: dist/test
+  app: app/test
 
 mac:
   identity: null # disable code signing
