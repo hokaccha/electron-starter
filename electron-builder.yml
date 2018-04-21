@@ -1,7 +1,7 @@
 appId: com.example.electron-starter
 
 directories:
-  output: dist
+  output: dist/production
   app: app/production
 
 publish:
