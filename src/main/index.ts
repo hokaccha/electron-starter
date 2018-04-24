@@ -1,5 +1,6 @@
 import electron from "electron";
 import { watchUpdate } from "./autoUpdater";
+import { initMenu } from "./menu";
 
 const app = electron.app;
 let mainWindow: electron.BrowserWindow | null;
@@ -8,6 +9,7 @@ function createWindow() {
   mainWindow = new electron.BrowserWindow({
     width: 1280,
     height: 780,
+    frame: process.platform === "darwin",
     title: "Electron Starter"
   });
 
@@ -26,6 +28,7 @@ app.on("window-all-closed", () => {
 app.on("ready", () => {
   createWindow();
   watchUpdate();
+  initMenu();
 });
 
 app.on("activate", () => {
