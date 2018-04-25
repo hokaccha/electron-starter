@@ -9,7 +9,6 @@ function createWindow() {
   mainWindow = new electron.BrowserWindow({
     width: 1280,
     height: 780,
-    frame: process.platform === "darwin",
     title: "Electron Starter"
   });
 
