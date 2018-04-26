@@ -1,4 +1,5 @@
 import { app, Menu, dialog } from "electron";
+import { updater, UpdateState } from "./updater";
 
 const editMenu = {
   label: "Edit",
@@ -47,8 +48,26 @@ const template: any = [editMenu, viewMenu, windowMenu, helpMenu];
 const checkForUpdateItem = {
   label: "Check for Updates...",
   click() {
-    // TODO
-    dialog.showMessageBox({ message: "There are currently no updates available." });
+    switch (updater.state) {
+      case UpdateState.UpdateNotAvailable: {
+        dialog.showMessageBox({ message: "There are currently no updates available." });
+        return;
+      }
+      case UpdateState.UpdateDownloaded: {
+        dialog.showMessageBox(
+          {
+            message: "There is an available update. Restart app to apply the latest update.",
+            buttons: ["Update Now", "Later"]
+          },
+          buttonIndex => {
+            if (buttonIndex === 0) {
+              updater.quit();
+            }
+          }
+        );
+        return;
+      }
+    }
   }
 };
 
