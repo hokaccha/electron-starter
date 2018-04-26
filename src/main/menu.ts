@@ -50,21 +50,18 @@ const checkForUpdateItem = {
   click() {
     switch (updater.state) {
       case UpdateState.UpdateNotAvailable: {
-        dialog.showMessageBox({ message: "There are currently no updates available." });
+        const message = "There are currently no updates available.";
+        dialog.showMessageBox({ message });
         return;
       }
       case UpdateState.UpdateDownloaded: {
-        dialog.showMessageBox(
-          {
-            message: "There is an available update. Restart app to apply the latest update.",
-            buttons: ["Update Now", "Later"]
-          },
-          buttonIndex => {
-            if (buttonIndex === 0) {
-              updater.quit();
-            }
+        const message = "There is an available update. Restart app to apply the latest update.";
+        const buttons = ["Update Now", "Later"];
+        dialog.showMessageBox({ message, buttons }, buttonIndex => {
+          if (buttonIndex === 0) {
+            updater.quit();
           }
-        );
+        });
         return;
       }
     }
