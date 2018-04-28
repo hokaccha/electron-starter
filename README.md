@@ -13,6 +13,7 @@
 - electron-builder
 - sqlite3
 - Auto Update
+- Code signing
 - CI
   - AppVeyor (for windows)
   - Travis CI (for macOS)
