@@ -28,9 +28,13 @@
   dependencies:
     samsam "1.3.0"
 
-"@types/fs-extra@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.0.tgz#d3e225b35eb5c6d3a5a782c28219df365c781413"
+"@types/events@*":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
+
+"@types/fs-extra@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.2.tgz#235a7e2b56452cc0a6a4809b53e1d1eaffff9c96"
   dependencies:
     "@types/node" "*"
 
@@ -46,9 +50,9 @@
   version "8.9.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
 
-"@types/react-dom@16.0.4":
-  version "16.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.4.tgz#2e8fd45f5443780ed49bf2cdd9809e6091177a7d"
+"@types/react-dom@16.0.5":
+  version "16.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.0.5.tgz#a757457662e3819409229e8f86795ff37b371f96"
   dependencies:
     "@types/node" "*"
     "@types/react" "*"
@@ -57,10 +61,11 @@
   version "16.0.38"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.38.tgz#76617433ea10274505f60bb86eddfdd0476ffdc2"
 
-"@types/sqlite3@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@types/sqlite3/-/sqlite3-3.1.1.tgz#f9b707c574e8d2f73d6c41aaa86e28b6ef85a324"
+"@types/sqlite3@3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@types/sqlite3/-/sqlite3-3.1.3.tgz#580d547203b8ad6e11aa6a6769c8ca5d7e197d13"
   dependencies:
+    "@types/events" "*"
     "@types/node" "*"
 
 abbrev@1:
@@ -1287,9 +1292,9 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@0.28.10:
-  version "0.28.10"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.10.tgz#40282e79230f7bcb4e483efa631d670b735ebf42"
+css-loader@0.28.11:
+  version "0.28.11"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.11.tgz#c3f9864a700be2711bb5a2462b2389b1a392dab7"
   dependencies:
     babel-code-frame "^6.26.0"
     css-selector-tokenizer "^0.7.0"
@@ -1789,9 +1794,9 @@ electron-log@2.2.14:
   version "2.2.14"
   resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-2.2.14.tgz#2123319ccb8d70b0db07f0eda57d5823cb42b4b0"
 
-electron-mocha@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/electron-mocha/-/electron-mocha-6.0.1.tgz#3bab0fa6e48b106791a6b0564359007741de2c32"
+electron-mocha@6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/electron-mocha/-/electron-mocha-6.0.2.tgz#58933097d8e5fda443495d071c93807aa0fafc4a"
   dependencies:
     commander "^2.14.1"
     electron-window "^0.8.0"
@@ -2326,9 +2331,9 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
-file-loader@1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.9.tgz#cf152aedbcfb3d67038d0845efb7cf11a96e53de"
+file-loader@1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.11.tgz#6fe886449b0f2a936e43cabaac0cdbfb369506f8"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
