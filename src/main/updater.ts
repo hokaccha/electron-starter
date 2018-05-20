@@ -1,5 +1,6 @@
 import { autoUpdater, AppUpdater } from "electron-updater";
 import logger from "./logger";
+import isDev from "electron-is-dev";
 
 autoUpdater.logger = logger;
 
@@ -22,6 +23,7 @@ export class Updater {
   }
 
   check() {
+    if (isDev) return;
     this.autoUpdater.checkForUpdates();
   }
 
