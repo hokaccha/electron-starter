@@ -1,30 +1,30 @@
 os:
-  # - osx
-  # - linux
+  - osx
+  - linux
   - windows
 
 language: node_js
 node_js:
   - "8.9.0"
 
-# branches:
-#   except:
-#     - "/^v\\d+\\.\\d+\\.\\d+$/"
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
 
-# cache:
-#   yarn: true
-#   timeout: 600
-#   directories:
-#     - node_modules
-#     - $HOME/.electron
+cache:
+  yarn: true
+  timeout: 600
+  directories:
+    - node_modules
+    - $HOME/.electron
 
 before_script:
-  # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
-  # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
-  # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm install -g yarn; fi
 
 script:
   - yarn run lint
   - yarn run test
-  # - if [[ $TRAVIS_BRANCH =~ release/.+ ]]; then yarn run publish; fi
+  - if [[ $TRAVIS_BRANCH =~ release/.+ ]]; then yarn run publish; fi
