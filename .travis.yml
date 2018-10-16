@@ -4,8 +4,6 @@ os:
   - windows
 
 language: node_js
-node_js:
-  - "8.9.0"
 
 branches:
   except:
