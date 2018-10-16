@@ -22,7 +22,6 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm install -g yarn; fi
 
 script:
   - yarn run lint
